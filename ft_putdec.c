@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putdec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 16:23:11 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 21:39:09 by duha             ###   ########.fr       */
+/*   Created: 2024/11/20 21:26:21 by duha              #+#    #+#             */
+/*   Updated: 2024/11/20 22:41:31 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
-void	ft_putchar(const char c)
+void	ft_putdec(const int num)
 {
-	write(1, &c, 1);
+	long	conv;
+
+	conv = num;
+	if (conv < 0)
+	{
+		ft_putchar('-');
+		conv = -conv;
+	}
+	if (conv > 9)
+		ft_putdec(conv / 10);
+	ft_putchar((conv % 10) + '0');
 }

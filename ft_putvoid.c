@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putvoid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 16:23:11 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 21:39:09 by duha             ###   ########.fr       */
+/*   Created: 2024/11/20 22:29:51 by duha              #+#    #+#             */
+/*   Updated: 2024/11/20 22:41:02 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
-void	ft_putchar(const char c)
+void	ft_putvoid(const void *p)
 {
-	write(1, &c, 1);
+	unsigned long	conv;
+
+	conv = (unsigned long)p;
+	ft_putstr("0x");
+	ft_puthex(conv);
 }

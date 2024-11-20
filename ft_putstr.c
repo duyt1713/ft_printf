@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 16:23:11 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 21:39:09 by duha             ###   ########.fr       */
+/*   Created: 2024/11/20 21:01:00 by duha              #+#    #+#             */
+/*   Updated: 2024/11/20 22:41:10 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <unistd.h>
 
-void	ft_putchar(const char c)
+void	ft_putstr(const char *str)
 {
-	write(1, &c, 1);
+	while (*str)
+	{
+		ft_putchar(*str);
+		str++;
+	}
 }

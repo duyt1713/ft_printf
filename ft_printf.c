@@ -6,13 +6,41 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:40 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 20:31:28 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/20 22:42:34 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
 #include <stdlib.h>
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
+}
+
+void	check_format(const char format)
+{
+	if (format == 'c')
+		ft_putchar;
+	if (format == 's')
+		ft_putstr;
+	if (format == 'p')
+		ft_putvoid;
+	if (format == 'd' || format == 'i')
+		ft_putdec;
+	if (format == 'u')
+		ft_putdec;
+	if (format == 'x')
+		ft_puthex;
+	if (format == 'X')
+		ft_toupper(ft_puthex);
+	if (format == '%')
+		ft_putchar('%');
+}
 
 int	ft_printf(const char *format, ...)
 {
