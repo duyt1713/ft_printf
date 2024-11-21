@@ -6,26 +6,50 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:40 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 10:34:14 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/21 22:35:47 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
-#include <stdlib.h>
 
-int	ft_toupper(int c)
+int	ft_printf(const char *format, ...)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	va_list	args;
+	int		count;
+
+	va_start(args, format);
+	count = 0;
+	count = ft_printf_hehe(format, args, count);
+	va_end(args);
+	return (count);
 }
 
-int	check_format(const char format)
+static int	ft_printf_hehe(const char *format, va_list args, int count)
+{
+	int	check;
+
+	check = 0;
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			check = ft_check_format(*(++format), args);
+			if (check == -1)
+				return (-1);
+			count += check;
+		}
+		else
+			count += ft_putchar(*format);
+		format++;
+	}
+	return (count);
+}
+
+static int	ft_check_format(const char format, va_list args)
 {
 	if (format == 'c')
-		ft_print_char;
+		return (ft_print_char(va_arg(args, int)));
 	if (format == 's')
 		ft_print_str;
 	if (format == 'p')
@@ -37,29 +61,9 @@ int	check_format(const char format)
 	if (format == 'x')
 		ft_print_hex;
 	if (format == 'X')
-		ft_toupper(ft_print_hex);
+		ft_print_hex;
 	if (format == '%')
 		ft_print_char('%');
-}
-
-int	ft_printf(const char *format, ...)
-{
-	int		count;
-	va_list	args;
-
-	va_start(args, format);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			count = check_format(&format, args);
-
-		}
-	}
-	va_arg(args, type);
-	va_end(args);
-	return (count);
 }
 
 // void va_start(va_list ap, const char *format);

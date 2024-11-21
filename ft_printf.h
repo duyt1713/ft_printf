@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:37 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 01:13:39 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 00:04:28 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	ft_printf(const char *format, ...);
 int	ft_print_char(const char c);
 int	ft_print_str(const char *str);
 int	ft_print_pointer(const void *p);
+int	ft_print_udecimal(const unsigned int num);
 int	ft_print_decimal(const int num);
-int	ft_print_hex(const int num);
+int	ft_print_hex(const unsigned int num);
+int	ft_print_HEX(const unsigned int num)
 #endif
