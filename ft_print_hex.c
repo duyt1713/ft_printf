@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putvoid.c                                       :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 22:29:51 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 22:41:02 by duha             ###   ########.fr       */
+/*   Created: 2024/11/20 22:06:54 by duha              #+#    #+#             */
+/*   Updated: 2024/11/21 02:11:47 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putvoid(const void *p)
+int	ft_print_hex(const int num)
 {
-	unsigned long	conv;
+	const char	*hex;
+	long		conv;
+	int			count;
 
-	conv = (unsigned long)p;
-	ft_putstr("0x");
-	ft_puthex(conv);
+	hex = "0123456789abcdef";
+	conv = num;
+	count = 0;
+	if (num < 0)
+	{
+		ft_print_char('-');
+		conv = -conv;
+		count++;
+	}
+	if (conv >= 16)
+		count += ft_print_hex(conv / 16);
+	ft_print_char(hex[conv % 16]);
+	count++;
+	return (count);
 }

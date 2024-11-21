@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/20 22:06:54 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 22:41:17 by duha             ###   ########.fr       */
+/*   Created: 2024/11/20 22:29:51 by duha              #+#    #+#             */
+/*   Updated: 2024/11/21 01:50:33 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthex(const int num)
+int	ft_print_pointer(const void *p)
 {
-	const char	*hex;
-	long		conv;
+	unsigned long	conv;
 
-	hex = "0123456789abcdef";
-	conv = num;
-	if (num < 0)
-	{
-		ft_putchar('-');
-		conv = -conv;
-	}
-	if (conv >= 16)
-		ft_puthex(conv / 16);
-	ft_putchar(hex[conv % 16]);
+	conv = (unsigned long)p;
+	ft_print_str("0x");
+	ft_print_hex(conv);
 }
+// int main(void)
+// {
+// 	const void *p;
+// 	printf("%p", p);
+// }

@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:40 by duha              #+#    #+#             */
-/*   Updated: 2024/11/20 22:42:34 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/21 01:04:46 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ int	ft_toupper(int c)
 		return (c);
 }
 
-void	check_format(const char format)
+int	check_format(const char format)
 {
 	if (format == 'c')
-		ft_putchar;
+		ft_print_char;
 	if (format == 's')
-		ft_putstr;
+		ft_print_str;
 	if (format == 'p')
-		ft_putvoid;
+		ft_print_pointer;
 	if (format == 'd' || format == 'i')
-		ft_putdec;
+		ft_print_decimal;
 	if (format == 'u')
-		ft_putdec;
+		ft_print_decimal;
 	if (format == 'x')
-		ft_puthex;
+		ft_print_hex;
 	if (format == 'X')
-		ft_toupper(ft_puthex);
+		ft_toupper(ft_print_hex);
 	if (format == '%')
-		ft_putchar('%');
+		ft_print_char('%');
 }
 
 int	ft_printf(const char *format, ...)
@@ -54,7 +54,7 @@ int	ft_printf(const char *format, ...)
 	while (*p)
 	{
 		if (*p != '%')
-			ft_putchar(*p);
+			ft_print_char(*p);
 		p++;
 	}
 	va_arg(arg, type);
