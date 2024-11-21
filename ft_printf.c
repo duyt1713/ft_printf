@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:40 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 01:04:46 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/21 10:34:14 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,20 @@ int	check_format(const char format)
 int	ft_printf(const char *format, ...)
 {
 	int		count;
-	char	*p;
-	va_list	arg;
-	va_list	dest;
+	va_list	args;
 
-	va_start(arg, format);
-	p = format;
-	while (*p)
+	va_start(args, format);
+	while (*format)
 	{
-		if (*p != '%')
-			ft_print_char(*p);
-		p++;
+		if (*format == '%')
+		{
+			format++;
+			count = check_format(&format, args);
+
+		}
 	}
-	va_arg(arg, type);
-	va_copy(dest, arg);
-	va_end(arg);
+	va_arg(args, type);
+	va_end(args);
 	return (count);
 }
 
