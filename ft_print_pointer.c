@@ -6,22 +6,23 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 22:29:51 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 01:50:33 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 02:52:18 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdint.h>
 
-int	ft_print_pointer(const void *p)
+int	ft_print_pointer(void *p)
 {
-	unsigned long	conv;
+	int				count;
+	uintptr_t		num;
 
-	conv = (unsigned long)p;
-	ft_print_str("0x");
-	ft_print_hex(conv);
+	if (!p)
+		return (ft_print_str("(nil)"));
+	num = (uintptr_t)p;
+	count = 0;
+	count += ft_print_str("0x");
+	count += ft_print_hex_lower(num);
+	return (count);
 }
-// int main(void)
-// {
-// 	const void *p;
-// 	printf("%p", p);
-// }

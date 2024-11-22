@@ -6,14 +6,14 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:37 by duha              #+#    #+#             */
-/*   Updated: 2024/11/22 00:04:28 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 02:52:05 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdio.h> //testing purpose
+# include <stdint.h>
 
 /* ft_printf is a custom implementation of the standard printf function.
 It formats and prints a series of characters and values to the standard output
@@ -23,11 +23,12 @@ and outputs the corresponding values. It returns the total number of characters
 printed (excluding the null byte used to end output to strings). */
 int	ft_printf(const char *format, ...);
 
-int	ft_print_char(const char c);
-int	ft_print_str(const char *str);
-int	ft_print_pointer(const void *p);
-int	ft_print_udecimal(const unsigned int num);
-int	ft_print_decimal(const int num);
-int	ft_print_hex(const unsigned int num);
-int	ft_print_HEX(const unsigned int num)
+int	ft_print_char(char c);
+int	ft_print_str(char *str);
+int	ft_print_pointer(void *p);
+int	ft_print_udecimal(unsigned int num);
+int	ft_print_decimal(int num);
+int	ft_print_hex_lower(uintptr_t num);
+int	ft_print_hex_upper(uintptr_t num);
+
 #endif

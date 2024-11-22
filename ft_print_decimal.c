@@ -6,13 +6,13 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:26:21 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 23:49:26 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 01:03:52 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_decimal(const int num)
+int	ft_print_decimal(int num)
 {
 	long	conv;
 	int		count;

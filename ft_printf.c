@@ -6,12 +6,15 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:40 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 22:35:47 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 03:02:21 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
+
+static int	ft_printf_hehe(const char *format, va_list args, int count);
+static int	ft_check_format(const char format, va_list args);
 
 int	ft_printf(const char *format, ...)
 {
@@ -40,7 +43,7 @@ static int	ft_printf_hehe(const char *format, va_list args, int count)
 			count += check;
 		}
 		else
-			count += ft_putchar(*format);
+			count += ft_print_char(*format);
 		format++;
 	}
 	return (count);
@@ -50,23 +53,19 @@ static int	ft_check_format(const char format, va_list args)
 {
 	if (format == 'c')
 		return (ft_print_char(va_arg(args, int)));
-	if (format == 's')
-		ft_print_str;
-	if (format == 'p')
-		ft_print_pointer;
-	if (format == 'd' || format == 'i')
-		ft_print_decimal;
-	if (format == 'u')
-		ft_print_decimal;
-	if (format == 'x')
-		ft_print_hex;
-	if (format == 'X')
-		ft_print_hex;
-	if (format == '%')
-		ft_print_char('%');
+	else if (format == 's')
+		return (ft_print_str(va_arg(args, char *)));
+	else if (format == 'p')
+		return (ft_print_pointer(va_arg(args, void *)));
+	else if (format == 'd' || format == 'i')
+		return (ft_print_decimal(va_arg(args, int)));
+	else if (format == 'u')
+		return (ft_print_udecimal(va_arg(args, unsigned int)));
+	else if (format == 'x')
+		return (ft_print_hex_lower(va_arg(args, unsigned int)));
+	else if (format == 'X')
+		return (ft_print_hex_upper(va_arg(args, unsigned int)));
+	else if (format == '%')
+		return (ft_print_char(format));
+	return (-1);
 }
-
-// void va_start(va_list ap, const char *format);
-// argument_type va_arg(va_list ap, argument_type);
-// void va_copy(va_list dest, va_list src);
-// void va_end(va_list ap);

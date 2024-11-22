@@ -6,22 +6,20 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 10:06:50 by duha              #+#    #+#             */
-/*   Updated: 2024/11/21 23:56:26 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 02:29:48 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_udecimal(const unsigned int num)
+int	ft_print_udecimal(unsigned int num)
 {
-	unsigned int	conv;
-	int				count;
+	int	count;
 
-	conv = num;
 	count = 0;
-	if (conv > 9)
-		count += ft_print_udecimal(conv / 10);
-	ft_print_char((conv % 10) + '0');
+	if (num > 9)
+		count += ft_print_udecimal(num / 10);
+	ft_print_char((num % 10) + '0');
 	count++;
 	return (count);
 }

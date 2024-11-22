@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_HEX.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex_upper.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 23:59:25 by duha              #+#    #+#             */
-/*   Updated: 2024/11/22 00:03:19 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/22 02:50:27 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdint.h>
 
-int	ft_print_HEX(const unsigned int num)
+int	ft_print_hex_upper(uintptr_t num)
 {
-	const char	*HEX;
-	long		conv;
+	const char	*hex;
 	int			count;
 
-	HEX = "0123456789ABCDEF";
-	conv = num;
+	hex = "0123456789ABCDEF";
 	count = 0;
-	if (conv >= 16)
-		count += ft_print_HEX(conv / 16);
-	ft_print_char(HEX[conv % 16]);
+	if (num >= 16)
+		count += ft_print_hex_upper(num / 16);
+	ft_print_char(hex[num % 16]);
 	count++;
 	return (count);
 }
