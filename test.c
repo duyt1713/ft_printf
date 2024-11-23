@@ -143,4 +143,9 @@ int main(void)
 	count = ft_printf("Alternate form: %#x, %#o\n", 123, 123);
 	pcount = printf("Alternate form: %#x, %#o\n", 123, 123);
 	run_test(count, pcount);
+
+/* 	//Remove the compiling flags to test this case:
+	count = ft_printf("Percent sign at the end: ahskf%");
+	pcount = printf("Percent sign at the end: ahskf%");
+	run_test(count, pcount); */
 }
