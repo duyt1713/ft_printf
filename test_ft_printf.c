@@ -1,15 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_ft_printf.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/25 23:01:30 by duha              #+#    #+#             */
+/*   Updated: 2024/11/26 01:30:31 by duha             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-#include <string.h>
 #include <limits.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#define COLOR_RESET "\033[0m"
+#define COLOR_RED "\033[31m"
+#define COLOR_GREEN "\033[32m"
 
 void run_test(int count, int pcount)
 {
-	int comp = count - pcount;
-	printf("                                            \
-	TEST %s!\n", comp != 0 ? "FAILED" : "SUCCEEDED");
+	if (count == pcount)
+		printf(COLOR_GREEN "					Test passed: %d == %d" COLOR_RESET "\n", count, pcount);
+	else
+		printf(COLOR_RED "					Test failed: %d != %d" COLOR_RESET "\n", count, pcount);
 }
 
 int main(void)
@@ -144,8 +162,21 @@ int main(void)
 	pcount = printf("Alternate form: %#x, %#o\n", 123, 123);
 	run_test(count, pcount);
 
-/* 	//Remove the compiling flags to test this case:
-	count = ft_printf("Percent sign at the end: ahskf%");
-	pcount = printf("Percent sign at the end: ahskf%");
+/* 	// Remove the compiling flags to test this case:
+	count = ft_printf("Percent sign at the end: cspdiuxX%");
+	printf("\n");
+	pcount = printf("Percent sign at the end: cspdiuxX%");
+	printf("\n");
 	run_test(count, pcount); */
+
+	return (0);
 }
+
+/* // Mock write function to simulate failure, move this function to the front of main to test:
+ssize_t write(int fd, const void *buf, size_t count)
+{
+	(void)fd;
+	(void)buf;
+	(void)count;
+	return (-1);
+} */
