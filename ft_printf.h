@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:59:37 by duha              #+#    #+#             */
-/*   Updated: 2024/11/25 23:38:55 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/26 02:26:07 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 # include <stdint.h>
 
+/* Main function */
+
 int	ft_printf(const char *format, ...);
+
+/* Utility functions*/
 
 int	ft_print_char(char c);
 int	ft_print_str(char *str);

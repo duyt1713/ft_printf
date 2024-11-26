@@ -6,12 +6,26 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 22:29:51 by duha              #+#    #+#             */
-/*   Updated: 2024/11/26 00:09:21 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/26 02:24:41 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/**
+ * ft_print_pointer - Writes a pointer address to the standard output.
+ *
+ * @p: The pointer to be written.
+ *
+ * This function writes the given pointer address to the standard output (file
+ * descriptor 1) in lowercase hexadecimal format prefixed with "0x". If the
+ * pointer is NULL, it prints "(nil)" instead. It uses the ft_print_str
+ * function to print the prefix and the ft_print_hex_lower function to print
+ * the address in hexadecimal format.
+ *
+ * Return: The total number of characters printed.
+ *         If an error occurs during printing, the function returns -1.
+ */
 int	ft_print_pointer(void *p)
 {
 	int				count;

@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:23:11 by duha              #+#    #+#             */
-/*   Updated: 2024/11/25 23:41:27 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/26 02:23:34 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
  *
  * @c: The character to be written.
  *
- * This function writes the given character to the standard output (file
- * descriptor 1) using the write system call.
+ * This function writes the given character to the standard output
+ * (file descriptor 1) using the write system call.
  *
  * Return: The number of bytes written, which is 1 on success, or -1 on error.
  */
