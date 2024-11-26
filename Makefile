@@ -6,26 +6,26 @@
 #    By: duha <duha@student.hive.fi>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/18 16:56:04 by duha              #+#    #+#              #
-#    Updated: 2024/11/26 01:31:03 by duha             ###   ########.fr        #
+#    Updated: 2024/11/26 02:35:04 by duha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
-SRCS = 	ft_printf.c \
-		ft_print_char.c \
-		ft_print_str.c \
-		ft_print_pointer.c \
-		ft_print_decimal.c \
-		ft_print_udecimal.c \
-		ft_print_hex_lower.c \
-		ft_print_hex_upper.c
+SRCS = 	src/ft_printf.c \
+		src/ft_print_char.c \
+		src/ft_print_str.c \
+		src/ft_print_pointer.c \
+		src/ft_print_decimal.c \
+		src/ft_print_udecimal.c \
+		src/ft_print_hex_lower.c \
+		src/ft_print_hex_upper.c
 
 OBJS = $(SRCS:.c=.o)
 
-TEST_SRC = test_ft_printf.c
+TEST_SRC = test/test_ft_printf.c
 TEST_OBJ = $(TEST_SRC:.c=.o)
 TEST_OUT = test_ft_printf.out
 
