@@ -6,7 +6,7 @@
 /*   By: duha <duha@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 23:01:30 by duha              #+#    #+#             */
-/*   Updated: 2024/11/26 02:32:51 by duha             ###   ########.fr       */
+/*   Updated: 2024/11/27 15:37:14 by duha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ int main(void)
 	return (0);
 }
 
-/* // Mock write function to simulate failure, move this function to the front of main to test:
+/* // Mock write function to simulate failure:
 ssize_t write(int fd, const void *buf, size_t count)
 {
 	(void)fd;
